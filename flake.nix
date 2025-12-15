@@ -58,8 +58,7 @@
           ];
 
           unpackPhase = ''
-            						echo $src
-                        cp $src ./
+            cp "$src" "./$(basename $src)"
           '';
 
           buildPhase = ''
