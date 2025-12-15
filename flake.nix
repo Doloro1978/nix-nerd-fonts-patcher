@@ -58,7 +58,8 @@
           ];
 
           unpackPhase = ''
-            cp $src ./
+            						echo $src
+                        cp $src ./
           '';
 
           buildPhase = ''
