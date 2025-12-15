@@ -62,9 +62,9 @@
           '';
 
           buildPhase = ''
-            [[ "${subfamily}" == "" ]] && cp ${src} partial.${extension}
-            [[ "${subfamily}" != "" ]] && extract_subfamily ${src} partial.${extension} ${subfamily}
-            fontforge -script ${nerd-fonts}/font-patcher partial.${extension} --name '${name}' --no-progressbars -c -out $out/
+            [[ "${subfamily}" == "" ]] && cp "$(basename "$src")" "partial.${extension}"
+            [[ "${subfamily}" != "" ]] && extract_subfamily "$(basename "$src")" "partial.${extension}" "${subfamily}"
+            fontforge -script ${nerd-fonts}/font-patcher "partial.${extension}" --name '${name}' --no-progressbars -c -o $out/
           '';
 
           installPhase = "";
